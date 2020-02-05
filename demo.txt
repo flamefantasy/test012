@@ -1,0 +1,37 @@
+#coding:utf-8
+import unittest
+from demo import Run_Main
+class TestMethod(unittest.TestCase):
+
+	@classmethod
+	def setUpClass(cls):
+		print('类执行之前的方法')
+
+	@classmethod
+	def tearDownClass(cls):
+		print('类执行之后的方法')
+
+	def setUp(self):
+		print ('test-->setup')
+	
+	def tearDown(self):
+		print('test-->tearDown')
+	
+	def  test_01(self):
+		url='https://y3zhbh5.zhbservice.com/h5service/personal/productFavoriteList'
+		data = {
+		'userId':'bf28e175219d47b1ae8384de50493052',
+		'access_token':'636b953a59e176b2f85078edfef3cb84b73d783b',
+		'pageSize':'100',
+		'pageIndex':'1'
+		}
+		run = Run_Main()
+		res = run.Run_Main(url,'POST',data)
+		print(res)
+	
+	def  test_02(self):
+		print('第二个测试方法')	
+
+if __name__ == '__main__':
+	unittest.main()
+	
